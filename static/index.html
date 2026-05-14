@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocuMind AI | PDF Q&A System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="glass-background">
+        <div class="aurora-orb"></div>
+        <div class="grid-overlay"></div>
+    </div>
+    
+    <!-- Login Overlay -->
+    <div id="auth-overlay" class="auth-overlay">
+        <div class="auth-card">
+            <div class="logo">
+                <span class="logo-icon">📄</span>
+                <h1>DocuMind <span>AI</span></h1>
+            </div>
+            <p>Enter your email to access your documents and history.</p>
+            <div class="simple-login-form">
+                <input type="email" id="login-email-input" placeholder="Enter your email address..." required>
+                <button id="simple-login-btn" class="primary-btn">Log In / Sign Up</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="app-container">
+        <!-- Sidebar for History -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2>My Documents</h2>
+            </div>
+            <div class="doc-list" id="doc-list">
+                <div class="doc-item empty">No uploads yet</div>
+            </div>
+        </aside>
+
+        <div class="main-content">
+            <header>
+                <div class="header-left">
+                    <button id="toggle-sidebar" class="icon-btn">☰</button>
+                    <div class="logo">
+                        <span class="logo-icon">📄</span>
+                        <h1>DocuMind <span>AI</span></h1>
+                    </div>
+                </div>
+            <div class="header-actions">
+                <div id="user-info" class="user-info" style="display: none;">
+                    <img id="user-avatar" src="" alt="Avatar">
+                    <span id="user-name"></span>
+                    <button id="logout-btn" class="icon-btn" title="Logout">🚪</button>
+                </div>
+                <button id="settings-btn" class="icon-btn" title="Edit System Prompt">⚙️</button>
+                <div class="status-badge" id="status-badge">
+                    <span class="dot"></span> <span class="text">No Document</span>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="upload-section" id="upload-section">
+                <div class="upload-card">
+                    <div class="upload-icon">📤</div>
+                    <h2>Upload your PDF</h2>
+                    <p>Interact with your documents like never before.</p>
+                    <label for="pdf-upload" class="custom-file-upload">
+                        Choose File
+                    </label>
+                    <input type="file" id="pdf-upload" accept=".pdf" />
+                    <div id="file-info" class="file-info hidden">
+                        <span id="filename"></span>
+                        <button id="reset-upload">Change</button>
+                    </div>
+                    <div id="upload-loader" class="loader hidden"></div>
+                </div>
+            </section>
+
+            <section class="chat-section hidden" id="chat-section">
+                <div class="chat-container" id="chat-container">
+                    <div class="message system-message">
+                        Hello! I've processed your document. What would you like to know about it?
+                    </div>
+                </div>
+                <div class="chat-input-area">
+                    <input type="text" id="user-input" placeholder="Ask a question about the document..." />
+                    <button id="send-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 2L11 13M22 2L15 22L11 13L2 9L22 2Z" />
+                        </svg>
+                    </button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Settings Modal -->
+        <div id="settings-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>System Prompt Settings</h2>
+                    <button class="close-modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Customize how the AI should behave and answer questions.</p>
+                    <textarea id="system-prompt-input" rows="12"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button id="reset-prompt-btn" class="secondary-btn">Reset to Default</button>
+                    <button id="save-prompt-btn" class="primary-btn">Save Changes</button>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 DocuMind AI - Strictly grounded in your data.</p>
+        </footer>
+        </div> <!-- End Main Content -->
+    </div> <!-- End App Container -->
+
+    <script src="app.js"></script>
+</body>
+</html>
