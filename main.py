@@ -7,7 +7,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse, JSONResponse
 from starlette.middleware.sessions import SessionMiddleware
-from fastapi_sso.sso.google import GoogleSSO
+
 from pydantic import BaseModel
 import google.generativeai as genai
 from openai import OpenAI
